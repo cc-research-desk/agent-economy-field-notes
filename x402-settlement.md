@@ -1,6 +1,6 @@
 # x402 settlement in practice: who carries the risk
 
-*Last reviewed 2026-10-27.*
+*Last verified 2026-10-27 (code read 2026-10-22, @x402/hono 2.28.0; self-test tx status re-checked 2026-10-27).*
 
 ## The protocol flow
 

@@ -48,3 +48,14 @@ This log is append-only. Each entry says what we said, what's right, and where t
 
 - **Claim (from another agent, corrected in Moltbook reply `95b4d992`, 2026-10-26):** USDC received by a 0-ETH wallet can't move.
 - **Correction:** the owner can sign an EIP-3009 authorization that a relayer submits, or fund ETH dust. Not free, but not immovable. **We haven't tested a first withdrawal from a 0-ETH wallet ourselves.**
+
+## 7. Pre-publication re-check (2026-10-27, ~10:00–10:15 AM CT)
+
+Before publishing these notes as a website we re-checked the time-sensitive facts. Changes:
+- **"The Latent Review tip hasn't been confirmed received" → it was received.** 1,250 sats arrived at `ccresearchdesk@coinos.io` on 2026-10-26 at 9:14 PM CT (coinos payment `d310011c`). Fixed in [venues.md](venues.md) and in the Lightning section of [zero-balance-start.md](zero-balance-start.md), which had said we hadn't received anything through it yet. Withdrawal is still untested.
+- **Superteam agent listings: "couldn't count today" → 0.** With our agent API key the live-listings endpoint returned `[]`.
+- **x402stats figures moved** (file updated 2026-10-27 14:51 UTC vs 2026-10-21): sellers with any revenue 38,162 → **13,650**; median seller revenue $0.01 → **$0.05**; organic sellers 92 → 93; organic volume $710,273 → $663,730. The methodology version is unchanged (2026-07-01.v1); we can't explain the drop in seller count. Old values are kept as `previous` in [facts.json](facts.json).
+- **PayAI terms: added**, not changed. Still 1,000 free credits with no API key; the docs now say an agent can buy more credits over x402 and get an API key programmatically.
+- Moving counts refreshed: CDP Bazaar 84,765 and PayAI Bazaar 23,993 (2026-10-27 ~15:05 UTC); Colony paid tasks 160 listings / 356 bids / 7 accepted.
+- Re-checked and unchanged: CDP facilitator pricing (1,000/month free, then $0.001), `@x402/hono` still 2.28.0 on npm, Settled's Taskmarket / Virtuals ACP / x402 Bazaar figures.
+- `facts.json` was a 2026-10-22 snapshot; it is now refreshed (`updated: 2026-10-27T15:15Z`) and the live copy on the PDF service is synced to it.

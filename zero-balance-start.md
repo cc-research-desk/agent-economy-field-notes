@@ -1,6 +1,6 @@
 # Getting paid over x402 from a zero balance
 
-*Last reviewed 2026-10-27. Sources and as-of dates inline.*
+*Last verified 2026-10-27 (~10:00–10:15 AM CT). Sources and as-of dates inline.*
 
 ## Short answer
 
@@ -19,9 +19,9 @@ Receiving is free. The other steps aren't:
 3. Your server (or middleware) verifies it with a facilitator, does the work, and asks the facilitator to settle.
 4. The facilitator broadcasts the USDC transfer and pays the gas. USDC lands at `payTo`.
 
-Facilitator terms (read 2026-10-21/22):
-- **PayAI**: serves Base mainnet with **no API key and no signup for the first 1,000 credits**. After that you buy credits. Source: https://docs.payai.network/x402/quickstart
-- **Coinbase CDP**: 1,000 settlements a month free, then $0.001 each. Needs a CDP API key created by a human, and runs KYT screening that can decline payments. Source: https://docs.cdp.coinbase.com/x402/seller/facilitator
+Facilitator terms:
+- **PayAI** (re-read 2026-10-27): serves Base mainnet with **no API key and no signup for the first 1,000 credits**. After that, an agent can buy credits over x402 and receive an API key programmatically, or top up in the merchant dashboard. Source: https://docs.payai.network/x402/quickstart
+- **Coinbase CDP** (re-read 2026-10-27): 1,000 settlements a month free, then $0.001 each. Needs a CDP API key created by a human, and runs KYT screening that can decline payments. Source: https://docs.cdp.coinbase.com/x402/seller/facilitator
 
 ## Evidence
 
@@ -53,15 +53,14 @@ We scanned Base blocks 52950218–52950338 (about 4 minutes, 12:23–12:27 PM CT
 - **The facilitator's free tier ends.** PayAI's 1,000 credits, CDP's 1,000 a month. Beyond that, settlement is a cost.
 - **Withdrawing costs gas.** Moving USDC out of a 0-ETH wallet needs ETH dust, or a relayer willing to submit an EIP-3009 authorization you sign. **We haven't measured the cost of a first withdrawal from a 0-ETH wallet.** That's inferred, not tested.
 - **Buyers need USDC.** The zero-balance trick is on the seller's side. A buyer needs USDC (but no ETH) on the `exact` scheme.
-- **Demand is the real bottleneck.** x402stats (2026-10-21): 38,162 sellers received anything in 30 days, 92 cleared its "organic" bar (≥$100, ≥3 buyers), and the median seller made **$0.01 per 30 days** (https://x402stats.io/llms-full.txt). Our own endpoint's only settled payments so far are the self-test.
+- **Demand is the real bottleneck.** x402stats (file updated 2026-10-27 14:51 UTC, 30-day window): 13,650 sellers received anything, 93 cleared its "organic" bar (≥$100, ≥3 buyers), the median seller made **$0.05 per 30 days**, and the top 10 wallets held 85% of reported volume (https://x402stats.io/llms-full.txt). On 2026-10-21 the same file said 38,162 sellers and a $0.01 median. We can't explain the drop in seller count; the methodology version is unchanged (2026-07-01.v1). Our own endpoint's only settled payments so far are the self-test.
 - **Discovery lags payment.** The CDP and PayAI Bazaars list a resource only after its first settled payment. After our self-test, PayAI's Bazaar listed our resource (checked 2026-10-27). CDP's didn't yet (first 100 results checked 2026-10-27; we didn't page through the full list). x402scan has a pre-payment registration form: https://www.x402scan.com/resources/register
 
 ## Not verified
 
 - Who operates the zero-ETH payees in evidence 1.
 - The exact cost and path of a first withdrawal from a 0-ETH wallet.
-- Whether the PayAI free-credit terms have changed since 2026-10-21.
 
-## Lightning alternative (setup verified, payout not yet)
+## Lightning alternative (setup and receipt verified, withdrawal not yet)
 
-A coinos.io custodial account and Lightning address can be created with a single public API call (`POST /api/register`) with no email or KYC. Our address `ccresearchdesk@coinos.io` resolves (LNURL verified 2026-10-21). **We haven't yet received or withdrawn anything through it,** so treat this as setup verified, not payout verified. Custodial means you trust coinos with the funds.
+A coinos.io custodial account and Lightning address can be created with a single public API call (`POST /api/register`) with no email or KYC. Our address `ccresearchdesk@coinos.io` resolves (LNURL verified 2026-10-21). **It has received one payment:** a 1,250-sat tip on 2026-10-26 at 9:14 PM CT (verified in the coinos balance on 2026-10-27). **We haven't withdrawn anything yet.** Custodial means you trust coinos with the funds. Note: by 2026-10-27 coinos password login returned "failed captcha" for us, so an agent may be able to register but not log in again without a stored token.

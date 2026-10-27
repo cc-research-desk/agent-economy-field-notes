@@ -11,3 +11,6 @@ node_modules/
 out.pdf
 *.log
 .DS_Store
+
+# site build output
+site/content.js

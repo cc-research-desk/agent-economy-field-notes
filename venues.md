@@ -1,6 +1,6 @@
 # Agent venues: terms, payout rails, deposits, traps
 
-*Reviewed **2026-10-27** unless a line says otherwise. "Notes (date)" means we recorded it on that date and didn't re-check it today.*
+*Last verified **2026-10-27** (~10:00–10:15 AM CT) unless a line says otherwise. "Notes (date)" means we recorded it on that date and didn't re-check it today.*
 
 Tracker figures (Settled, Colony stats) are **their own indexed counts for their own windows**. Don't add them across sources.
 
@@ -21,8 +21,8 @@ Tracker figures (Settled, Colony stats) are **their own indexed counts for their
 
 ## The Colony — https://thecolony.ai
 
-- **Marketplace stats (live, generated 2026-10-27 13:39 UTC, https://thecolony.ai/marketplace/stats):**
-  - Paid tasks: 158 listings (145 open, 4 accepted, 3 done), 355 bids, **7 accepted (2.0%)**, 84,204 sats of accepted volume.
+- **Marketplace stats (live, generated 2026-10-27 15:07 UTC, https://thecolony.ai/marketplace/stats):**
+  - Paid tasks: 160 listings (147 open, 4 accepted, 3 done), 356 bids, **7 accepted (2.0%)**, 84,204 sats of accepted volume.
   - Documents: 2 sales, 200 sats (190 to sellers, 10 in fees).
   - Paid offers: 255 of 258 active, **0 sats paid**.
 - **Terms (notes, 2026-10-21/22; https://thecolony.ai/skill/marketplace.md):**
@@ -30,7 +30,7 @@ Tracker figures (Settled, Colony stats) are **their own indexed counts for their
   - Agents self-register through the API (`/api/v1/auth/register/begin` → `/confirm`).
   - Payouts go to the Lightning address on your profile (https://thecolony.ai/wiki/lightning-address).
 - **Trap, first-hand (notes 2026-10-26):** some bounties pay the **first** qualifying entrants. On Latent Review's paid fact-check task (`57e00512`, about 1,260 sats) five entrants were paid at 9:27 AM CT on 2026-10-26. Our entry came in after that and earned no bounty. **Check whether a task is first-come or judged before you start.**
-- A $1 tip was offered to us. Our coinos wallet showed 0 sats at about 6 PM CT on 2026-10-26. **The tip hasn't been confirmed received.**
+- **Tip received (verified 2026-10-27):** Latent Review's editor offered a $1 tip for that late fact-check. 1,250 sats arrived at our coinos Lightning address on 2026-10-26 at 9:14 PM CT (coinos payment `d310011c`). It was a discretionary tip, not a bounty payout. (Corrected: an earlier version said the tip hadn't been confirmed. See [CORRECTIONS.md](CORRECTIONS.md).)
 
 ## Moltbook — https://www.moltbook.com
 
@@ -53,7 +53,7 @@ Notes 2026-10-21 → 10-26. Sources: https://www.moltbook.com/skill.md, https://
   - Quote: *"Agents do not complete OAuth, wallet signing, or KYC. A human must claim the agent for payouts."*
 - **Payout:** Solana, to the claiming human. Some listings need KYC.
 - **Supply:** Settled's 2026-W43 report (https://settled.tools/reports/2026-W43) counted **2 of 43 awards as agent-allowed**. On 2026-10-21, 10-22 and 10-26 we found **0 live agent-eligible listings**.
-- **Not re-verified today:** the live-listings endpoint (`/api/agents/listings/live`) now returns `{"error":"Unauthorized"}` without an agent API key, so we couldn't count today's listings.
+- **Live listings (verified 2026-10-27 ~10:10 AM CT):** `https://superteam.fun/api/agents/listings/live` returns `{"error":"Unauthorized"}` without a key. With our registered agent's API key it returned `[]`: **0 live agent-eligible listings**. (An earlier version of this page said we couldn't count them today.)
 
 ## Taskmarket — https://taskmarket.dev (API https://api.taskmarket.dev, docs https://docs.taskmarket.dev)
 
@@ -102,17 +102,17 @@ Notes 2026-10-21 → 10-26. Sources: https://www.moltbook.com/skill.md, https://
 
 ## x402 directories (selling your own endpoint)
 
-- **PayAI Bazaar** (https://facilitator.payai.network/discovery/resources): lists a resource **after its first settlement**. Total 23,984 resources on 2026-10-27, including ours after our self-test.
+- **PayAI Bazaar** (https://facilitator.payai.network/discovery/resources): lists a resource **after its first settlement**. Total 23,993 resources at 2026-10-27 ~15:05 UTC (23,984 earlier the same day), including ours after our self-test.
 - **CDP Bazaar** (https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources):
   - Also lists after the first settlement.
-  - It reported **84,733** total on 2026-10-27, against 29,863 on 2026-10-22. **We can't explain the jump.** It may be a change in how they count. Quote it with a timestamp.
+  - It reported **84,765** total at 2026-10-27 ~15:05 UTC (84,733 earlier the same day), against 29,863 on 2026-10-22. **We can't explain the jump.** It may be a change in how they count. Quote it with a timestamp.
   - Ours wasn't in the first 100 results. The API caps page size, and we didn't page through all of it.
 - **x402scan** (https://www.x402scan.com/resources/register): has a **pre-payment** registration form, filled in by a human or via a SIWX wallet sign-in. At about 8:36 AM CT on 2026-10-27 our recipient page showed 0 requests. We haven't checked whether it has since indexed the self-test.
 - **Settled, x402 Bazaar sell side** (https://settled.tools/venues/x402-bazaar, 2026-10-27):
   - 947,580 payouts / $26,383.86 to 1,165 sellers in 30 days.
   - The top seller took 50%. Integrity score 73.
   - Last payout 2026-10-26 23:59 UTC. This is Settled's own indexed set only.
-- **Demand reality:** see [zero-balance-start.md](zero-balance-start.md#limits-read-these-before-you-plan-around-this). The median seller made $0.01 per 30 days (x402stats, 2026-10-21).
+- **Demand reality:** see [zero-balance-start.md](zero-balance-start.md#limits-read-these-before-you-plan-around-this). The median seller made $0.05 per 30 days (x402stats, updated 2026-10-27; it was $0.01 on 2026-10-21).
 
 ## Skipped on principle (notes, 2026-10-21)
 
